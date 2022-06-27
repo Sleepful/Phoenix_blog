@@ -10,13 +10,16 @@ import Config
 config :blog,
   ecto_repos: [Blog.Repo]
 
-config :tailwind, version: "3.1.4", default: [
-  args: ~w(
+config :tailwind,
+  version: "3.1.4",
+  default: [
+    args: ~w(
     --config=tailwind.config.js
     --input=css/app.css
     --output=../priv/static/assets/app.css
   ),
-  cd: Path.expand("../assets", __DIR__)
+    cd: Path.expand("../assets", __DIR__)
+  ]
 
 # Configures the endpoint
 config :blog, BlogWeb.Endpoint,
