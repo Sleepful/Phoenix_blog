@@ -1,6 +1,7 @@
 defmodule Blog.Journal.Post do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Blog.Interaction.Comment
 
   schema "posts" do
     field :body, :string
