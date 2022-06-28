@@ -39,4 +39,4 @@ $ mix phx.server
 
 # Preview
 
-![2022-06-28 14 40 25](https://user-images.githubusercontent.com/7144046/176285941-cdbfd1ff-4d89-4751-bab0-09913712d6fb.gif)]
+![2022-06-28 14 40 25](https://user-images.githubusercontent.com/7144046/176285941-cdbfd1ff-4d89-4751-bab0-09913712d6fb.gif)
