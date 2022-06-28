@@ -1,26 +1,14 @@
-defmodule BlogWeb.PageController do
+defmodule BlogWeb.CommentController do
   use BlogWeb, :controller
+
   alias Blog.Repo
   alias Blog.Journal.Post
   alias Blog.Interaction
   alias Blog.Interaction.Comment
-  import Ecto.Query
 
-  # index action
-  def index(conn, _params) do
-    posts = Repo.all(from p in Post, select: %{:id => p.id, :body => p.body, :title => p.title})
-
-    posts =
-      posts
-      |> Enum.map(
-        &(Map.get_and_update(&1, :body, fn val ->
-            {val, String.slice(val, 0, 50)}
-          end)
-          |> elem(1))
-      )
-
-    IO.inspect(posts)
-    render(conn, "index.html", posts: posts)
+  def new(conn, _params) do
+    changeset = Interaction.change_comment(%Comment{})
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"comment" => comment_params, "id" => id}) do
@@ -42,31 +30,23 @@ defmodule BlogWeb.PageController do
         conn
         |> put_flash(:error, msg)
 
+        # |> redirect(to: Routes.page_path(conn, :show, id))
+        # BlogWeb.PageController.show(conn, %{changeset: changeset, comment_params: comment_params})
         id = comment_params["post_id"]
         post = Repo.get!(Post, id)
         comments = Blog.Interaction.list_comments(id)
 
-        render(conn, "index.html",
+        render(BlogWeb.PageView, "index.html",
           posts: [post],
           comments: comments,
           changeset: changeset,
-          action: Routes.page_path(conn, :create, id)
+          action: Routes.comment_path(conn, :create, id)
         )
+
+        # render(conn, "new.html", changeset: changeset)
+        # render(conn, "index.html", posts: [post], comments: comments, changeset: changeset, action: Routes.comment_path(conn, :create, id))
+        # render(conn, "index.html", changeset: changeset)
+        # render(conn, "index.html", changeset: changeset)
     end
-  end
-
-  def show(conn, params) do
-    id = params["id"]
-    post = Repo.get!(Post, id)
-    comments = Blog.Interaction.list_comments(id)
-    changeset = Interaction.change_comment(%Comment{})
-
-    render(conn, "index.html",
-      posts: [post],
-      comments: comments,
-      changeset: changeset,
-      action: Routes.page_path(conn, :create, id)
-      # action: Routes.comment_path(conn, :create, id)
-    )
   end
 end

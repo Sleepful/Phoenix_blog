@@ -17,21 +17,14 @@ defmodule BlogWeb.Router do
   scope "/", BlogWeb do
     pipe_through :browser
 
+    resources "/admin", PostController
+
     get "/", PageController, :index
-    # resources "/posts", PostController do
-    #   resources "/comments", CommentController
-    # end
+    get "/:id", PageController, :show
+
+    post "/:id/comments", PageController, :create
 
   end
-
-  # scope "/admin", BlogWeb.Admin do
-  #   pipe_through :browser
-  #
-  #   get "/", PageController, :index
-  #    resources "/posts", PostController do
-  #      resources "/comments", CommentController
-  #    end
-  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", BlogWeb do

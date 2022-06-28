@@ -1,0 +1,18 @@
+<h1>Show Post</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @post.body %>
+  </li>
+
+</ul>
+
+<span class="underline hover:bg-sky-500/50"><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span> |
+<span class="underline hover:bg-sky-500/50"><%= link "Back", to: Routes.post_path(@conn, :index) %></span>

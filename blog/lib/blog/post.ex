@@ -1,10 +1,11 @@
-defmodule Blog.Post do
+defmodule Blog.Journal.Post do
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "posts" do
     field :body, :string
     field :title, :string
+    has_many :comments, Comment
 
     timestamps()
   end

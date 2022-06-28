@@ -1,0 +1,8 @@
+<h1>Listing Comments</h1>
+
+<%= for comment <- @comments do %>
+  <h2><%= comment.email %></h2>
+  <body><%= comment.body %></body>
+<% end %>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.post_path(@conn, :create)) %>
