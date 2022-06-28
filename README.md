@@ -39,10 +39,19 @@ $ mix phx.server
 
 # Preview (Screenshots)
 
+- Blog-post listing
 <img width="810" alt="Screen Shot 2022-06-28 at 15 00 45" src="https://user-images.githubusercontent.com/7144046/176287449-7476ba95-795b-4134-b00f-0fc0eef4abe1.png">
+
+- Blog-post full-view
 <img width="810" alt="Screen Shot 2022-06-28 at 15 01 09" src="https://user-images.githubusercontent.com/7144046/176287206-76937996-a79d-467f-bcd1-d551186831d1.png">
+
+- Leaving a comment
 <img width="810" alt="Screen Shot 2022-06-28 at 15 01 17" src="https://user-images.githubusercontent.com/7144046/176287188-fa7b0edd-7c89-4a3c-a5d5-b5f47cdc8f56.png">
+
+- Admin board
 <img width="810" alt="Screen Shot 2022-06-28 at 15 01 25" src="https://user-images.githubusercontent.com/7144046/176287163-afd7770d-6333-4995-8521-f4652015ec90.png">
+
+- Edit post
 <img width="810" alt="Screen Shot 2022-06-28 at 15 01 39" src="https://user-images.githubusercontent.com/7144046/176287167-9b4b3698-5506-4b91-aebe-f21c4c8df252.png">
 
 
